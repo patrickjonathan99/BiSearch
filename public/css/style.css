@@ -5,6 +5,14 @@ body {
     flex-direction: column;
 }
 
+.navbar {
+    --bs-navbar-padding-y: 0 !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
 .head {
     position: sticky;
     top: 0;
@@ -69,10 +77,35 @@ p {
     margin-bottom: 2% !important;
 }
 
+.judulSection {
+    margin: 0 7%;
+    margin-top: 1%;
+}
+
+.alertProfile {
+    margin: 0% 5%;
+    margin-top: 1%;
+}
+
+.judulSection button {
+    font-size: large;
+    font-weight: 700;
+}
+
 .forumContent {
     display: flex;
     flex-wrap: wrap;
-    margin: 2% 5%;
+    margin: 1% 5%;
+}
+
+.closedForumAlert {
+    width: 100%;
+    margin-bottom: 2% !important;
+}
+
+.pageContainer {
+    margin: 2% 7% !important;
+    margin-top: 3% !important;
 }
 
 .lecturerName {
@@ -106,6 +139,12 @@ textarea {
 .ket {
     display: flex;
     justify-content: space-between;
+    margin-top: 5px;
+}
+
+.editForum {
+    display: flex;
+    justify-content: flex-end;
     margin-top: 5px;
 }
 
@@ -159,10 +198,15 @@ hr {
     margin: 10% 20%;
 }
 
-.formContent div {
+.formSec {
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
+}
+
+.invalid-feedback {
+    color: #f0c118 !important;
+    font-weight: 500 !important;
 }
 
 .submit {
@@ -184,20 +228,8 @@ hr {
     outline-offset: 2px;
 }
 
-/* .formContent div button {
-    width: 25%;
-    margin: 0 37.5%;
-    border: none;
-    border-radius: 15px;
-    padding: 10px;
-    background-color:#f0c118;
-    outline-offset: 2px;
-    font-size: large;
-    font-weight: 500;
-} */
-
 .submitBtn {
-    background-color: lightgray;
+    background-color: lightgray !important;
     color: black;
     border: none;
 }
@@ -215,6 +247,103 @@ hr {
     color: #f0c118 !important;
     font-weight: 600;
 }
-/* .media {
+
+.newRecruitBtn {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1% 5%;
+}
+
+.newRecBtn {
+    color: black !important;
+    background-color: #f0c118 !important;
+    font-weight: 500;
+    border: none;
+    position: fixed;
+    bottom: 80px;
+}
+
+.newFormContainer {
+    background-color: white;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 3% 5%;
+    border-radius: 20px;
+}
+
+.newFormContent {
+    margin: 3% 5%;
+}
+
+.newFormContent div label {
+    font-size: medium;
+    color: black;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.newFormContent div input, select {
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
+    background-color:whitesmoke !important;
+    outline-offset: 2px !important;
+}
+
+.addNewForum {
+    margin-bottom: 0 !important;
+    display: flex;
+    flex-direction: row !important;
+    justify-content: flex-end;
+}
+
+.addForumBtn {
+    background-color: #f0c118 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 10px !important;
+    width: 8% !important;
+}
+
+.addForumBtn:hover {
+    color: black;
+}
+
+.newRecContainer {
+    margin: 0 35%;
+    margin-top: 3%;
+    width: 30%;
+}
+
+.newRecText {
+    text-align: center;
+    font-size: x-large;
+    color: black !important;
+    font-weight: 700;
+}
+
+.historyTable {
+    margin: 5% 10%;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+.table {
+    border-radius: 5px !important;
+}
+
+.recStatusCard {
+    width: 100%;
+}
+
+.media {
     margin: 0 !important;
-} */
+}
+
+.thisError {
+    color: #f0c118;
+    font-weight: 500;
+}

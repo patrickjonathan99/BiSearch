@@ -1,4 +1,4 @@
-<div class="foot">
+<div class="foot" id="footer">
     <p class="leftF">© BiSearch, 2023</p>
     <p class="rightF">
         Find us at

@@ -1,7 +1,7 @@
 <div class="head">
     <nav class="navbar is-info" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="/">
+            <a class="navbar-item" href="/forum">
                 <img src="/images/logo.png" width="112" height="28">
             </a>
 
@@ -14,31 +14,65 @@
 
         <div id="navLink" class="navbar-menu">
             <div class="navbar-start">
-                <a href="/" class="navbar-item tabActive">
+                @auth('lecturer')
+                    <a href="/myforum" class="navbar-item {{ ($title === "My Forum") ? 'tabActive' : '' }}">
+                        My Forum
+                    </a>
+                @endauth
+
+                <a href="/forum" class="navbar-item {{ ($title === "Forum") ? 'tabActive' : '' }}">
                 Forum
                 </a>
 
-                <a class="navbar-item">
+                <a href="/history" class="navbar-item {{ ($title === "History") ? 'tabActive' : '' }}">
                 History
                 </a>
-
-                <a class="navbar-item">
-                    Past Researches
-                </a>
             </div>
 
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a href="/l" class="button is-light">
-                            Log in
-                        </a>
+            @auth('student')
+                <div class="navbar-end">
+                    <a href="/profile" class="navbar-item {{ ($title === "Profile") ? 'tabActive' : '' }}">
+                        Profile
+                    </a>
+
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit" class="button is-primary"><strong>Logout</strong></button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @elseauth('lecturer')
+                <div class="navbar-end">
+                    <a href="/profile" class="navbar-item {{ ($title === "Profile") ? 'tabActive' : '' }}">
+                        Profile
+                    </a>
+
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit" class="button is-primary"><strong>Logout</strong></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            @else
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a href="/signup" class="button is-primary">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a href="/" class="button is-light">
+                                Log in
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @endauth
         </div>
     </nav>
 </div>
