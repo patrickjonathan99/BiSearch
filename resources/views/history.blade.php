@@ -20,13 +20,15 @@
                     <tbody>
                         @foreach($histories as $key => $his)
                             <tr>
-                                <td>{{ $key + 1 }}</td>
+                                <td>{{ $histories->firstItem() + $key }}</td>
                                 <td>{{ $his->lecturer->name }}</td>
                                 <td>{{ $his->title }}</td>
                                 <td>
                                     <ul>
                                         @foreach ($his->comment as $c)
-                                            <li>{{ $c->student->name }}</li>
+                                            @if ($c->status === "Accepted")
+                                                <li>{{ $c->student->name }}</li>
+                                            @endif
                                         @endforeach
                                     </ul>
                                 </td>

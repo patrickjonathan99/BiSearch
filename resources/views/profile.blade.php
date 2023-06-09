@@ -51,7 +51,7 @@
                         <tbody>
                             @foreach($comments as $key => $c)
                                 <tr>
-                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ $comments->firstItem() + $key }}</td>
                                     <td>{{ $c->post->title }}</td>
                                     <td>{{ $c->post->lecturer->name }}</td>
                                     <td>{{ $c->status }}</td>

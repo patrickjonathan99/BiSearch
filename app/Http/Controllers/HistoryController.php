@@ -9,7 +9,7 @@ class HistoryController extends Controller
 {
     //
     public function index() {
-        $history = Post::where('status', 'Past')->paginate(5);
+        $history = Post::orderByDesc('id')->where('status', 'Past')->paginate(5);
 
         return view('history', [
             'title' => 'History',
