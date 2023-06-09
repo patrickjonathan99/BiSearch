@@ -16,6 +16,22 @@ class ForumController extends Controller
     public function myforum() {
         $user = Auth::guard('lecturer')->user();
         $post = Post::where('lecturer_id', $user->id)->where('status', 'Ongoing')->get();
+
+        $currentDate = Carbon::now();
+
+        foreach ($post as $p) {
+            if ($currentDate >= $p->due_date) {
+                Post::where('id', $p->id)->update([
+                    'status' => 'Past'
+                ]);
+
+                Comment::where('post_id', $p->id)->where('status', 'Pending')->update([
+                    'status' => 'Full Slot'
+                ]);
+            }
+        }
+
+        $post = Post::where('lecturer_id', $user->id)->where('status', 'Ongoing')->get();
         $pastpost = Post::where('lecturer_id', $user->id)->where('status', 'Past')->paginate(3);
 
         return view('myforum', [
@@ -32,6 +48,22 @@ class ForumController extends Controller
         }
         elseif (Auth::guard('lecturer')->check()) {
             $user = Auth::guard('lecturer')->user();
+        }
+
+        $post = Post::orderByDesc('id')->where('status', 'Ongoing')->paginate(9);
+
+        $currentDate = Carbon::now();
+
+        foreach ($post as $p) {
+            if ($currentDate >= $p->due_date) {
+                Post::where('id', $p->id)->update([
+                    'status' => 'Past'
+                ]);
+
+                Comment::where('post_id', $p->id)->where('status', 'Pending')->update([
+                    'status' => 'Full Slot'
+                ]);
+            }
         }
 
         $post = Post::orderByDesc('id')->where('status', 'Ongoing')->paginate(9);
