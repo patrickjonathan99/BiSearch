@@ -20,12 +20,14 @@ class ProfileController extends Controller
             $user = Auth::guard('lecturer')->user();
         }
 
+        $commentFlag = Comment::orderByDesc('id')->where('student_id', $user->id)->first();
         $comment = Comment::orderByDesc('id')->where('student_id', $user->id)->paginate(5);
 
         return view('profile', [
             'title' => 'Profile',
             'users' => $user,
-            'comments' => $comment
+            'comments' => $comment,
+            'commentFlag' => $commentFlag
         ]);
     }
 

@@ -36,35 +36,37 @@
         </div>
 
         @auth('student')
-            <div class="recStatusCard card mt-5">
-                <div class="card-body">
-                    <h3 class="text-center mb-4">Recruitment Status</h3>
-                    <table class="table is-bordered is-stripped is-hoverable is-fullwidth">
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Title</th>
-                                <th>Lecturer</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($comments as $key => $c)
+            @if ($commentFlag)
+                <div class="recStatusCard card mt-5">
+                    <div class="card-body">
+                        <h3 class="text-center mb-4">Recruitment Status</h3>
+                        <table class="table is-bordered is-stripped is-hoverable is-fullwidth">
+                            <thead>
                                 <tr>
-                                    <td>{{ $comments->firstItem() + $key }}</td>
-                                    <td>{{ $c->post->title }}</td>
-                                    <td>{{ $c->post->lecturer->name }}</td>
-                                    <td>{{ $c->status }}</td>
+                                    <th>No.</th>
+                                    <th>Title</th>
+                                    <th>Lecturer</th>
+                                    <th>Status</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach($comments as $key => $c)
+                                    <tr>
+                                        <td>{{ $comments->firstItem() + $key }}</td>
+                                        <td>{{ $c->post->title }}</td>
+                                        <td>{{ $c->post->lecturer->name }}</td>
+                                        <td>{{ $c->status }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
 
-                    <div>
-                        {{ $comments->onEachSide(1)->links('pagination::bootstrap-5') }}
+                        <div>
+                            {{ $comments->onEachSide(1)->links('pagination::bootstrap-5') }}
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
         @endauth
     </div>
 @endsection
