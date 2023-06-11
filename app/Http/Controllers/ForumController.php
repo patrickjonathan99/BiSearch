@@ -31,8 +31,8 @@ class ForumController extends Controller
             }
         }
 
-        $post = Post::where('lecturer_id', $user->id)->where('status', 'Ongoing')->get();
-        $pastpost = Post::where('lecturer_id', $user->id)->where('status', 'Past')->paginate(3);
+        $post = Post::orderByDesc('id')->where('lecturer_id', $user->id)->where('status', 'Ongoing')->get();
+        $pastpost = Post::orderByDesc('id')->where('lecturer_id', $user->id)->where('status', 'Past')->paginate(3);
 
         return view('myforum', [
             'title' => 'My Forum',
