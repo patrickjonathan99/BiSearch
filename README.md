@@ -19,6 +19,7 @@ Browse forum posts to find a paper you want to contribute in.
 
 # Students Forum Breakdown Page 
 ![sfbd](https://github.com/patrickjonathan99/BiSearch/blob/master/Screenshot/Forum%20BreakDown%20Mhs%20Blm%20diisi.png)
+
 ![sfbd](https://github.com/patrickjonathan99/BiSearch/blob/master/Screenshot/Forum%20BreakDown%20Mhs%20Sdh%20diisi.png)
 Leave comments, ask questions, interact, make an impression with the lecturer.
 
@@ -32,5 +33,6 @@ Review your ongoing and past recruitments and create a post to recruit students 
 
 # Lecturers Forum Breakdown Page 
 ![lfbd](https://github.com/patrickjonathan99/BiSearch/blob/master/Screenshot/Forum%20BreakDown%20Dsn%20Blm%20Accept.png)
+
 ![lfbd](https://github.com/patrickjonathan99/BiSearch/blob/master/Screenshot/Forum%20BreakDown%20Dsn%20Sdh%20Accept.png)
 Pick and choose students that meet your requirements.
